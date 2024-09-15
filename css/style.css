@@ -1,0 +1,279 @@
+/* Define o estilo básico do corpo */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../img/fundo.png');
+    background-size: cover;
+    background-position: center 0px; /* Adiciona deslocamento de 20px para baixo */
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* Centraliza a box e define o estilo dela */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Estilo da box central */
+.box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do título */
+.box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo do botão */
+#brisar-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão */
+#brisar-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para as colunas geradas */
+.colunas {
+    display: none; /* Escondida até clicar no botão */
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Estilo para cada coluna */
+.coluna {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    width: 22%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilo para o título de cada coluna */
+.coluna h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilo da capa (imagem) no centro da coluna */
+.coluna img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do título, autor, diretor, etc. abaixo da imagem */
+.info {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.director-year {
+    font-size: 0.9rem;
+    color: #666;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.author, .artist {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+footer {
+    
+    color: white;
+    text-align: center;  
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    body {
+        background-image: url('../img/fundo-tablet.png'); /* Fundo para tablets */
+    }
+
+    .colunas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+
+    .coluna img {
+        width: 120px; /* Ajuste a largura da imagem */
+        height: auto;
+    }
+
+    .coluna .info, .coluna .director-year, .coluna .artist, .coluna .author {
+        font-size: 14px;
+    }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    body {
+        background-image: url('../img/fundo-tablet.png'); /* Fundo para tablets */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .box {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .colunas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%;
+        max-width: 300px; /* Ajuste a largura máxima das colunas */
+        margin: 10px 0;
+    }
+
+    .coluna img {
+        width: 100%; /* Ajuste a largura da imagem para se ajustar ao tamanho da coluna */
+        height: auto;
+    }
+
+    .coluna .info, .coluna .director-year, .coluna .artist, .coluna .author {
+        font-size: 14px;
+    }
+}
+
+/* Responsividade para smartphones */
+@media (max-width: 844px) {
+    body {
+        background-image: url('../img/fundo-mobile.png'); /* Fundo para smartphones */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .colunas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%;
+        max-width: 280px; /* Ajuste a largura máxima das colunas */
+        margin: 10px 0;
+    }
+
+    .coluna img {
+        width: 100%; /* Ajuste a largura da imagem para se ajustar ao tamanho da coluna */
+        height: auto;
+    }
+
+    .coluna .info, .coluna .director-year, .coluna .artist, .coluna .author {
+        font-size: 12px;
+    }
+   
+
+
+}
+/* Responsividade para dispositivos com resolução similar ao iPhone 12 */
+@media (max-width: 390px) and (max-height: 844px) {
+    body {
+        background-image: url('../img/fundo-mobile.png'); /* Fundo para smartphones */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .colunas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%;
+        max-width: 300px; /* Ajuste a largura máxima das colunas */
+        margin: 10px 0;
+    }
+
+    .coluna img {
+        width: 100%; /* Ajuste a largura da imagem para se ajustar ao tamanho da coluna */
+        height: auto;
+    }
+
+    .coluna .info, .coluna .director-year, .coluna .artist, .coluna .author {
+        font-size: 12px;
+    }
+}

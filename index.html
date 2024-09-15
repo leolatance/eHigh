@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eHigh: Melhore sua brisa</title>
+    <link rel="icon" type="image/png" href="/img/icon-page.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        // Dados de exemplo para filmes, jogos, músicas e livros
+        const filmes = [
+    { titulo: "Los Angeles Cidade Proibida", diretor: "Curtis Hanson", ano: 1997 },
+    { titulo: "O Poderoso Chefão", diretor: "Francis Ford Coppola", ano: 1972 },
+    { titulo: "Casablanca", diretor: "Michael Curtiz", ano: 1942 },
+    { titulo: "Os Sete Samurais", diretor: "Akira Kurosawa", ano: 1954 },
+    { titulo: "Parasita", diretor: "Bong Joon-ho", ano: 2019 },
+    { titulo: "A Lista de Schindler", diretor: "Steven Spielberg", ano: 1993 },
+    { titulo: "Top Gun: Maverick", diretor: "Joseph Kosinski", ano: 2022 },
+    { titulo: "Toy Story 2", diretor: "John Lasseter", ano: 1999 },
+    { titulo: "Chinatown", diretor: "Roman Polanski", ano: 1974 },
+    { titulo: "Sindicato de Ladrões", diretor: "Elia Kazan", ano: 1954 },
+    { titulo: "A Batalha de Argel", diretor: "Gillo Pontecorvo", ano: 1966 },
+    { titulo: "Toy Story", diretor: "John Lasseter", ano: 1995 },
+    { titulo: "Janela Indiscreta", diretor: "Alfred Hitchcock", ano: 1954 },
+    { titulo: "Tempos Modernos", diretor: "Charlie Chaplin", ano: 1936 },
+    { titulo: "Como Treinar o Seu Dragão", diretor: "Dean DeBlois, Chris Sanders", ano: 2010 },
+    { titulo: "A Malvada", diretor: "Joseph L. Mankiewicz", ano: 1950 },
+    { titulo: "A Viagem de Chihiro", diretor: "Hayao Miyazaki", ano: 2001 },
+    { titulo: "Up - Altas Aventuras", diretor: "Pete Docter, Bob Peterson", ano: 2009 },
+    { titulo: "O Terceiro Homem", diretor: "Carol Reed", ano: 1949 },
+    { titulo: "Spotlight: Segredos Revelados", diretor: "Tom McCarthy", ano: 2015 },
+    { titulo: "Homem-Aranha no Aranhaverso", diretor: "Bob Persichetti, Peter Ramsey, Rodney Rothman", ano: 2018 },
+    { titulo: "Núpcias de Escândalo", diretor: "Frank Capra", ano: 1940 },
+    { titulo: "Procurando Nemo", diretor: "Andrew Stanton, Lee Unkrich", ano: 2003 },
+    { titulo: "Cantando na Chuva", diretor: "Gene Kelly, Stanley Donen", ano: 1952 },
+    { titulo: "12 Homens e uma Sentença", diretor: "Sidney Lumet", ano: 1957 },
+    { titulo: "Toy Story 3", diretor: "Lee Unkrich", ano: 2010 },
+    { titulo: "Crepúsculo dos Deuses", diretor: "Billy Wilder", ano: 1950 },
+    { titulo: "Viva A Vida é uma Festa", diretor: "Lee Unkrich, Adrian Molina", ano: 2017 },
+    { titulo: "O Poderoso Chefão 2", diretor: "Francis Ford Coppola", ano: 1974 },
+    { titulo: "A Fraternidade É Vermelha", diretor: "Jacques Rivette", ano: 1994 },
+    { titulo: "Selma", diretor: "Ava DuVernay", ano: 2014 },
+    { titulo: "Zootopia", diretor: "Byron Howard, Rich Moore", ano: 2016 },
+    { titulo: "Cidadão Kane", diretor: "Orson Welles", ano: 1941 },
+    { titulo: "Annie Hall", diretor: "Woody Allen", ano: 1977 },
+    { titulo: "Rebeldia Indomável", diretor: "John Frankenheimer", ano: 1967 },
+    { titulo: "Os Rejeitados", diretor: "Tyler Perry", ano: 2023 },
+    { titulo: "Divertidamente", diretor: "Pete Docter, Ronaldo Del Carmen", ano: 2015 },
+    { titulo: "Dr. Fantástico", diretor: "Stanley Kubrick", ano: 1964 },
+    { titulo: "Deixe Ela Entrar", diretor: "Tomas Alfredson", ano: 2008 },
+    { titulo: "O Senhor dos Anéis: As Duas Torres", diretor: "Peter Jackson", ano: 2002 },
+    { titulo: "Entre Facas e Segredos", diretor: "Rian Johnson", ano: 2019 },
+    { titulo: "M", diretor: "Fritz Lang", ano: 1931 },
+    { titulo: "Toy Story 4", diretor: "Josh Cooley", ano: 2019 },
+    { titulo: "O Lutador", diretor: "Darren Aronofsky", ano: 2008 },
+    { titulo: "Os Bons Companheiros", diretor: "Martin Scorsese", ano: 1990 },
+    { titulo: "O Mágico de Oz", diretor: "Victor Fleming", ano: 1939 },
+    { titulo: "Pacto de Sangue", diretor: "Billy Wilder", ano: 1944 },
+    { titulo: "Psicose", diretor: "Alfred Hitchcock", ano: 1960 },
+    { titulo: "Paddington 2", diretor: "Paul King", ano: 2017 },
+    { titulo: "Antes do Amanhecer", diretor: "Richard Linklater", ano: 1995 },
+    { titulo: "Batman: O Cavaleiro das Trevas", diretor: "Christopher Nolan", ano: 2008 },
+    { titulo: "Relíquia Sagrada", diretor: "William Dieterle", ano: 1941 },
+    { titulo: "Aconteceu Naquela Noite", diretor: "Frank Capra", ano: 1934 },
+    { titulo: "O Salário do Medo", diretor: "Henri-Georges Clouzot", ano: 1953 },
+    { titulo: "Intriga Internacional", diretor: "Alfred Hitchcock", ano: 1959 },
+    { titulo: "Ladrões de Bicicleta", diretor: "Vittorio De Sica", ano: 1948 },
+    { titulo: "Alien", diretor: "Ridley Scott", ano: 1979 },
+    { titulo: "Argo", diretor: "Ben Affleck", ano: 2012 },
+    { titulo: "Corra", diretor: "Jordan Peele", ano: 2017 },
+    { titulo: "O Garoto", diretor: "Charlie Chaplin", ano: 1921 },
+    { titulo: "Missão: Impossível – Acerto De Contas Parte 1", diretor: "Christopher McQuarrie", ano: 2023 },
+    { titulo: "O Pianista", diretor: "Roman Polanski", ano: 2002 },
+    { titulo: "Kind Hearts and Coronets", diretor: "Robert Hamer", ano: 1949 },
+    { titulo: "Os Incompreendidos", diretor: "François Truffaut", ano: 1959 },
+    { titulo: "O Túmulo dos Vagalumes", diretor: "Isao Takahata", ano: 1988 },
+    { titulo: "Doentes de Amor", diretor: "Michael Showalter", ano: 2017 },
+    { titulo: "Minari", diretor: "Lee Isaac Chung", ano: 2020 },
+    { titulo: "Retrato de Uma Jovem em Chamas", diretor: "Céline Sciamma", ano: 2019 },
+    { titulo: "O Tesouro de Sierra Madre", diretor: "John Huston", ano: 1948 },
+    { titulo: "Apocalypse Now", diretor: "Francis Ford Coppola", ano: 1979 },
+    { titulo: "Missão: Impossível - Fallout", diretor: "Christopher McQuarrie", ano: 2018 },
+    { titulo: "A Última Sessão de Cinema", diretor: "Peter Bogdanovich", ano: 1971 },
+    { titulo: "Tampopo", diretor: "Juzo Itami", ano: 1985 },
+    { titulo: "Mad Max: Estrada da Fúria", diretor: "George Miller", ano: 2015 },
+    { titulo: "Era Uma Vez em Tóquio", diretor: "Yasujiro Ozu", ano: 1953 },
+    { titulo: "Os Reis do Iê, Iê, Iê", diretor: "Richard Lester", ano: 1964 },
+    { titulo: "Metropolis", diretor: "Fritz Lang", ano: 1927 },
+    { titulo: "Gênio Indomável", diretor: "Gus Van Sant", ano: 1997 },
+    { titulo: "Em Busca do Ouro", diretor: "Charlie Chaplin", ano: 1925 },
+    { titulo: "Aliens", diretor: "James Cameron", ano: 1986 },
+    { titulo: "Homem-Aranha: Através do Aranhaverso", diretor: "Justin K. Thompson", ano: 2023 },
+    { titulo: "Três Homens em Conflito", diretor: "Sergio Leone", ano: 1967 },
+    { titulo: "Harry Potter e as Relíquias da Morte: Parte 2", diretor: "David Yates", ano: 2011 },
+    { titulo: "O Silêncio dos Inocentes", diretor: "Jonathan Demme", ano: 1991 },
+    { titulo: "Fanny e Alexander", diretor: "Ingmar Bergman", ano: 1982 },
+    { titulo: "Laura", diretor: "Otto Preminger", ano: 1944 },
+    { titulo: "A Loja da Esquina", diretor: "Ernst Lubitsch", ano: 1940 },
+    { titulo: "His Girl Friday", diretor: "Howard Hawks", ano: 1940 },
+    { titulo: "Nada de Novo no Front", diretor: "Lewis Milestone", ano: 1930 },
+    { titulo: "Monstros S.A", diretor: "Pete Docter, David Silverman, Lee Unkrich", ano: 2001 },
+    { titulo: "Noites de Cabíria", diretor: "Federico Fellini", ano: 1957 },
+    { titulo: "Pather Panchali", diretor: "Satyajit Ray", ano: 1955 },
+    { titulo: "Meet Me in St. Louis", diretor: "Vincente Minnelli", ano: 1944 },
+    { titulo: "Testemunha de Acusação", diretor: "Billy Wilder", ano: 1957 },
+    { titulo: "Oitava Série", diretor: "Bo Burnham", ano: 2018 },
+    { titulo: "Rebecca", diretor: "Alfred Hitchcock", ano: 1940 },
+    { titulo: "Stalker", diretor: "Andrei Tarkovsky", ano: 1979 },
+    { titulo: "O Exterminador do Futuro", diretor: "James Cameron", ano: 1984 },
+    { titulo: "Amnésia", diretor: "Christopher Nolan", ano: 2000 },
+    { titulo: "A Rede Social", diretor: "David Fincher", ano: 2010 }
+];
+
+const jogos = [ 
+    { titulo: "The Legend of Zelda: Ocarina of Time" },
+    { titulo: "Tony Hawk’s Pro Skater 2" },
+    { titulo: "Grand Theft Auto IV" },
+    { titulo: "SoulCalibur" },
+    { titulo: "Super Mario Galaxy" },
+    { titulo: "Super Mario Galaxy 2" },
+    { titulo: "Red Dead Redemption 2" },
+    { titulo: "The Legend of Zelda: Breath of the Wild" },
+    { titulo: "Perfect Dark" },
+    { titulo: "Metroid Prime" },
+    { titulo: "Grand Theft Auto V" },
+    { titulo: "Grand Theft Auto III" },
+    { titulo: "Tony Hawk’s Pro Skater 3" },
+    { titulo: "Halo: Combat Evolved" },
+    { titulo: "Half-Life 2" },
+    { titulo: "GoldenEye 007" },
+    { titulo: "Uncharted 2: Among Thieves" },
+    { titulo: "Resident Evil 4" },
+    { titulo: "Super Mario Odyssey" },
+    { titulo: "Spider-Man 2" },
+    { titulo: "Bioshock" },
+    { titulo: "NFL 2K1" },
+    { titulo: "Batman: Arkham City" },
+    { titulo: "Tekken" },
+    { titulo: "Mass Effect 2" },
+    { titulo: "The Legend of Zelda: Twilight Princess" },
+    { titulo: "Half-Life" },
+    { titulo: "The Legend of Zelda: The Wind Waker" },
+    { titulo: "The Orange Box" },
+    { titulo: "Grand Theft Auto: San Andreas" },
+    { titulo: "Gran Turismo 3: A-Spec" },
+    { titulo: "Halo 2" },
+    { titulo: "The Legend of Zelda: Majora’s Mask" },
+    { titulo: "The Last of Us" },
+    { titulo: "Madden NFL 2003" },
+    { titulo: "Portal 2" },
+    { titulo: "Metal Gear Solid V: The Phantom Pain" },
+    { titulo: "Final Fantasy IX" },
+    { titulo: "Call of Duty: Modern Warfare 2" },
+    { titulo: "The Elder Scrolls V: Skyrim" },
+    { titulo: "Gran Turismo" },
+    { titulo: "Metal Gear Solid 2: Sons of Liberty" },
+    { titulo: "Baldur’s Gate II: Shadows of Amn" },
+    { titulo: "LittleBigPlanet" },
+    { titulo: "Red Dead Redemption" },
+    { titulo: "Grand Theft Auto: Vice City" },
+    { titulo: "The Legend of Zelda: Collector’s Edition" },
+    { titulo: "The Legend of Zelda: A Link to the Past" },
+    { titulo: "Persona 5 Royal" },
+    { titulo: "World of Goo" },
+    { titulo: "The Witcher 3: Wild Hunt" },
+    { titulo: "Elden Ring" },
+    { titulo: "The Witcher 2" },
+    { titulo: "Bloodborne" },
+    { titulo: "Counter-Strike 2" },
+    { titulo: "League of Legends" },
+    { titulo: "Minecraft" },
+    { titulo: "Rocket League" },
+    { titulo: "Among Us" },
+    { titulo: "Dota 2" },
+    { titulo: "Overwatch" },
+    { titulo: "Rainbow Six Siege" },
+    { titulo: "Fortnite" },
+    { titulo: "Apex Legends" },
+    { titulo: "World of Warcraft" },
+    { titulo: "Tibia" },
+    { titulo: "Stardew Valley" },
+    { titulo: "LEGO Harry Potter" },
+    { titulo: "Valorant" },
+    { titulo: "Street Fighter" }
+];
+
+
+const musicas = [
+    { titulo: "(Sittin' On) the Dock of the Bay", artista: "Otis Redding" },
+    { titulo: "212", artista: "Azealia Banks" },
+    { titulo: "Africa", artista: "Toto" },
+    { titulo: "All Apologies", artista: "Nirvana" },
+    { titulo: "Anarchy in the U.K.", artista: "Sex Pistols" },
+    { titulo: "Baba O'Riley", artista: "The Who" },
+    { titulo: "Back in Black", artista: "AC/DC" },
+    { titulo: "Bad and Boujee", artista: "Migos" },
+    { titulo: "Bad Romance", artista: "Lady Gaga" },
+    { titulo: "Be My Baby", artista: "The Ronettes" },
+    { titulo: "Be-Bop-A-Lula", artista: "Gene Vincent" },
+    { titulo: "Billie Jean", artista: "Michael Jackson" },
+    { titulo: "Bizarre Love Triangle", artista: "New Order" },
+    { titulo: "Blitzkrieg Bop", artista: "Ramones" },
+    { titulo: "Blowin' in the Wind", artista: "Bob Dylan" },
+    { titulo: "Blue Suede Shoes", artista: "Elvis Presley" },
+    { titulo: "Born to Be Wild", artista: "Steppenwolf" },
+    { titulo: "Bridge over Troubled Water", artista: "Simon & Garfunkel" },
+    { titulo: "Buddy Holly", artista: "Weezer" },
+    { titulo: "California Dreamin'", artista: "The Mamas & the Papas" },
+    { titulo: "Caroline, No", artista: "Brian Wilson" },
+    { titulo: "Changes", artista: "David Bowie" },
+    { titulo: "Come as You Are", artista: "Nirvana" },
+    { titulo: "Crazy", artista: "Willie Nelson" },
+    { titulo: "Dancing in the Street", artista: "Martha and the Vandellas" },
+    { titulo: "A Day in the Life", artista: "The Beatles" },
+    { titulo: "Eleanor Rigby", artista: "The Beatles" },
+    { titulo: "The End", artista: "The Doors" },
+    { titulo: "Every Breath You Take", artista: "The Police" },
+    { titulo: "Family Affair", artista: "Sly & the Family Stone" },
+    { titulo: "For What It's Worth", artista: "Buffalo Springfield" },
+    { titulo: "Fortunate Son", artista: "Creedence Clearwater Revival" },
+    { titulo: "Fuck tha Police", artista: "N.W.A" },
+    { titulo: "Georgia On My Mind", artista: "Ray Charles" },
+    { titulo: "Get Lucky", artista: "Daft Punk" },
+    { titulo: "Gimme Shelter", artista: "The Rolling Stones" },
+    { titulo: "Go Your Own Way", artista: "Fleetwood Mac" },
+    { titulo: "God Only Knows", artista: "The Beach Boys" },
+    { titulo: "Good Vibrations", artista: "The Beach Boys" },
+    { titulo: "Hallelujah", artista: "Leonard Cohen" },
+    { titulo: "Heartbreak Hotel", artista: "Elvis Presley" },
+    { titulo: "Help!", artista: "The Beatles" },
+    { titulo: "\"Heroes\"", artista: "David Bowie" },
+    { titulo: "Heroin", artista: "The Velvet Underground" },
+    { titulo: "Hey Jude", artista: "The Beatles" },
+    { titulo: "Hot Stuff", artista: "Donna Summer" },
+    { titulo: "Hotel California", artista: "Eagles" },
+    { titulo: "Hound Dog", artista: "Elvis Presley" },
+    { titulo: "The House of the Rising Sun", artista: "The Animals" },
+    { titulo: "How Soon Is Now?", artista: "The Smiths" },
+    { titulo: "(I Can't Get No) Satisfaction", artista: "The Rolling Stones" },
+    { titulo: "I Got You (I Feel Good)", artista: "James Brown" },
+    { titulo: "I Heard It Through the Grapevine", artista: "Marvin Gaye" },
+    { titulo: "I Saw Her Standing There", artista: "The Beatles" },
+    { titulo: "I Still Haven't Found What I'm Looking For", artista: "U2" },
+    { titulo: "I Wanna Be Sedated", artista: "Ramones" },
+    { titulo: "I Want to Hold Your Hand", artista: "The Beatles" },
+    { titulo: "I Want You Back", artista: "The Jackson 5" },
+    { titulo: "I'm So Lonesome I Could Cry", artista: "Hank Williams" },
+    { titulo: "I'm Waiting for the Man", artista: "The Velvet Underground" },
+    { titulo: "Imagine", artista: "John Lennon" },
+    { titulo: "In My Life", artista: "The Beatles" },
+    { titulo: "It's a Man's Man's Man's World", artista: "James Brown" },
+    { titulo: "Jailhouse Rock", artista: "Elvis Presley" },
+    { titulo: "Johnny B. Goode", artista: "Chuck Berry" },
+    { titulo: "Jolene", artista: "Dolly Parton" },
+    { titulo: "Jumpin' Jack Flash", artista: "The Rolling Stones" },
+    { titulo: "Kashmir", artista: "Led Zeppelin" },
+    { titulo: "Layla", artista: "Derek and the Dominos" },
+    { titulo: "Let It Be", artista: "The Beatles" },
+    { titulo: "Let's Stay Together", artista: "Al Green" },
+    { titulo: "Light My Fire", artista: "The Doors" },
+    { titulo: "Like a Prayer", artista: "Madonna" },
+    { titulo: "Like a Rolling Stone", artista: "Bob Dylan" },
+    { titulo: "Livin' on a Prayer", artista: "Bon Jovi" },
+    { titulo: "London Calling", artista: "The Clash" },
+    { titulo: "Long Tall Sally", artista: "Little Richard" },
+    { titulo: "Losing My Religion", artista: "R.E.M." },
+    { titulo: "Louie Louie", artista: "The Kingsmen" },
+    { titulo: "Lust for Life", artista: "Iggy Pop" },
+    { titulo: "Maybe I'm Amazed", artista: "Paul McCartney" },
+    { titulo: "Maybellene", artista: "Chuck Berry" },
+    { titulo: "Monkey Gone to Heaven", artista: "Pixies" },
+    { titulo: "Mr. Tambourine Man", artista: "The Byrds" },
+    { titulo: "My Girl", artista: "The Temptations" },
+    { titulo: "My Sweet Lord", artista: "George Harrison" },
+    { titulo: "Mystery Train", artista: "Elvis Presley" },
+    { titulo: "New Year's Day", artista: "U2" },
+    { titulo: "No Ordinary Love", artista: "Sade" },
+    { titulo: "No Woman, No Cry", artista: "Bob Marley" },
+    { titulo: "Norwegian Wood (This Bird Has Flown)", artista: "The Beatles" },
+    { titulo: "Nothing Compares 2 U", artista: "Sinéad O'Connor" },
+    { titulo: "Old Town Road", artista: "Lil Nas X" },
+    { titulo: "One", artista: "U2" },
+    { titulo: "Our Lips Are Sealed", artista: "The Go-Go's" },
+    { titulo: "Papa's Got a Brand New Bag", artista: "James Brown" },
+    { titulo: "People Get Ready", artista: "The Impressions" },
+    { titulo: "Pictures of You", artista: "The Cure" },
+    { titulo: "Please, Please, Please", artista: "James Brown" },
+    { titulo: "Purple Haze", artista: "Jimi Hendrix" },
+    { titulo: "Purple Rain", artista: "Prince" },
+    { titulo: "Ramble On", artista: "Led Zeppelin" },
+    { titulo: "Redemption Song", artista: "Bob Marley" },
+    { titulo: "Respect", artista: "Aretha Franklin" },
+    { titulo: "Rhythm Nation", artista: "Janet Jackson" },
+    { titulo: "River Deep - Mountain High", artista: "Ike & Tina Turner" },
+    { titulo: "Rock and Roll Music", artista: "Chuck Berry" },
+    { titulo: "Roll Over Beethoven", artista: "Chuck Berry" },
+    { titulo: "Ruby Tuesday", artista: "The Rolling Stones" },
+    { titulo: "She Loves You", artista: "The Beatles" },
+    { titulo: "Smells Like Teen Spirit", artista: "Nirvana" },
+    { titulo: "Stairway to Heaven", artista: "Led Zeppelin" },
+    { titulo: "Stand by Me", artista: "Ben E. King" },
+    { titulo: "Strawberry Fields Forever", artista: "The Beatles" },
+    { titulo: "Stronger", artista: "Kanye West" },
+    { titulo: "Summertime Blues", artista: "Eddie Cochran" },
+    { titulo: "Summertime Sadness", artista: "Lana Del Rey" },
+    { titulo: "Sunshine of Your Love", artista: "Cream" },
+    { titulo: "Superstition", artista: "Stevie Wonder" },
+    { titulo: "Suspicious Minds", artista: "Elvis Presley" },
+    { titulo: "Sweet Emotion", artista: "Aerosmith" },
+    { titulo: "Sympathy for the Devil", artista: "The Rolling Stones" },
+    { titulo: "Take Me to the River", artista: "Al Green" },
+    { titulo: "That'll Be the Day", artista: "Buddy Holly" },
+    { titulo: "The Boxer", artista: "Simon & Garfunkel" },
+    { titulo: "The Message", artista: "Grandmaster Flash and the Furious Five" },
+    { titulo: "There Is a Light That Never Goes Out", artista: "The Smiths" },
+    { titulo: "Time After Time", artista: "Cyndi Lauper" },
+    { titulo: "The Times They Are a-Changin'", artista: "Bob Dylan" },
+    { titulo: "Vogue", artista: "Madonna" },
+    { titulo: "Voodoo Child (Slight Return)", artista: "Jimi Hendrix" },
+    { titulo: "Walk On By", artista: "Dionne Warwick" },
+    { titulo: "The Weight", artista: "The Band" },
+    { titulo: "Welcome to the Jungle", artista: "Guns N' Roses" },
+    { titulo: "What'd I Say", artista: "Ray Charles" },
+    { titulo: "What's Going On", artista: "Marvin Gaye" },
+    { titulo: "When a Man Loves a Woman", artista: "Percy Sledge" },
+    { titulo: "When Doves Cry", artista: "Prince" },
+    { titulo: "Where Is My Mind?", artista: "Pixies" },
+    { titulo: "While My Guitar Gently Weeps", artista: "The Beatles" },
+    { titulo: "White Room", artista: "Cream" },
+    { titulo: "A Whiter Shade of Pale", artista: "Procol Harum" },
+    { titulo: "Whole Lotta Love", artista: "Led Zeppelin" },
+    { titulo: "William, It Was Really Nothing", artista: "The Smiths" },
+    { titulo: "With or Without You", artista: "U2" },
+    { titulo: "Won't Get Fooled Again", artista: "The Who" },
+    { titulo: "Yesterday", artista: "The Beatles" },
+    { titulo: "You Really Got Me", artista: "The Kinks" },
+    { titulo: "You're So Vain", artista: "Carly Simon" },
+    { titulo: "Your Song", artista: "Elton John" }
+];
+
+
+const livros = [
+    { titulo: "Dom Quixote", autor: "Miguel de Cervantes" },
+    { titulo: "A Odisséia", autor: "Homero" },
+    { titulo: "A Ilíada", autor: "Homero" },
+    { titulo: "1984", autor: "George Orwell" },
+    { titulo: "Orgulho e Preconceito", autor: "Jane Austen" },
+    { titulo: "Moby Dick", autor: "Herman Melville" },
+    { titulo: "Cem Anos de Solidão", autor: "Gabriel García Márquez" },
+    { titulo: "A Bíblia", autor: "Diversos autores" },
+    { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien" },
+    { titulo: "A Divina Comédia", autor: "Dante Alighieri" },
+    { titulo: "Guerra e Paz", autor: "Liev Tolstói" },
+    { titulo: "O Grande Gatsby", autor: "F. Scott Fitzgerald" },
+    { titulo: "Os Irmãos Karamázov", autor: "Fiódor Dostoiévski" },
+    { titulo: "Crime e Castigo", autor: "Fiódor Dostoiévski" },
+    { titulo: "O Apanhador no Campo de Centeio", autor: "J.D. Salinger" },
+    { titulo: "O Sol é para Todos", autor: "Harper Lee" },
+    { titulo: "O Processo", autor: "Franz Kafka" },
+    { titulo: "O Livro do Desassossego", autor: "Fernando Pessoa" },
+    { titulo: "A Montanha Mágica", autor: "Thomas Mann" },
+    { titulo: "A Arte da Guerra", autor: "Sun Tzu" },
+    { titulo: "O Estrangeiro", autor: "Albert Camus" },
+    { titulo: "O Retrato de Dorian Gray", autor: "Oscar Wilde" },
+    { titulo: "O Hobbit", autor: "J.R.R. Tolkien" },
+    { titulo: "Mentes Perigosas", autor: "Ana Beatriz Barbosa Silva" },
+    { titulo: "O Senhor das Moscas", autor: "William Golding" },
+    { titulo: "A Metamorfose", autor: "Franz Kafka" },
+    { titulo: "O Lobo da Estepe", autor: "Hermann Hesse" },
+    { titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry" },
+    { titulo: "Beloved", autor: "Toni Morrison" },
+    { titulo: "O Nome da Rosa", autor: "Umberto Eco" },
+    { titulo: "Drácula", autor: "Bram Stoker" },
+    { titulo: "O Amor nos Tempos do Cólera", autor: "Gabriel García Márquez" },
+    { titulo: "O Livro dos Mortos", autor: "Anônimo egípcio" },
+    { titulo: "O Capital", autor: "Karl Marx" },
+    { titulo: "Em Busca do Tempo Perdido", autor: "Marcel Proust" },
+    { titulo: "Lolita", autor: "Vladimir Nabokov" },
+    { titulo: "Jane Eyre", autor: "Charlotte Brontë" },
+    { titulo: "O Príncipe", autor: "Nicolau Maquiavel" },
+    { titulo: "O Corpo Humano", autor: "Michael Ende" },
+    { titulo: "Ana Karenina", autor: "Liev Tolstói" },
+    { titulo: "O Aleph", autor: "Jorge Luis Borges" },
+    { titulo: "A Morte de Ivan Ilitch", autor: "Liev Tolstói" },
+    { titulo: "Os Contos de Canterbury", autor: "Geoffrey Chaucer" },
+    { titulo: "A Insustentável Leveza do Ser", autor: "Milan Kundera" },
+    { titulo: "Os Miseráveis", autor: "Victor Hugo" },
+    { titulo: "O Livro das Sombras", autor: "Gerald Gardner" },
+    { titulo: "O Coração das Trevas", autor: "Joseph Conrad" },
+    { titulo: "O Mundo de Sofia", autor: "Jostein Gaarder" },
+    { titulo: "O Enigma do Oito", autor: "José Rodrigues dos Santos" },
+    { titulo: "A Revolução dos Bichos", autor: "George Orwell" },
+    { titulo: "O Último Desejo", autor: "Andrzej Sapkowski" },
+    { titulo: "O Mágico de Oz", autor: "L. Frank Baum" },
+    { titulo: "O Código Da Vinci", autor: "Dan Brown" },
+    { titulo: "O Guia do Mochileiro das Galáxias", autor: "Douglas Adams" },
+    { titulo: "Os Homens que Não Amavam as Mulheres", autor: "Stieg Larsson" },
+    { titulo: "A Profecia Celestina", autor: "James Redfield" },
+    { titulo: "O Cavaleiro das Trevas", autor: "Frank Miller" },
+    { titulo: "A Paixão segundo G.H.", autor: "Clarice Lispector" },
+    { titulo: "O Livro de Ouro dos Contos de Fadas", autor: "Diversos autores" },
+    { titulo: "O Andar do Bêbado", autor: "Leonard Mlodinow" },
+    { titulo: "A Caverna", autor: "José Saramago" },
+    { titulo: "O Deus das Pequenas Coisas", autor: "Arundhati Roy" },
+    { titulo: "O Homem e seus Símbolos", autor: "Carl Jung" },
+    { titulo: "O Doador de Memórias", autor: "Lois Lowry" },
+    { titulo: "O Olho do Mundo", autor: "Robert Jordan" },
+    { titulo: "O Jardim Secreto", autor: "Frances Hodgson Burnett" },
+    { titulo: "O Livro da Selva", autor: "Rudyard Kipling" },
+    { titulo: "A Mulher na Janela", autor: "A.J. Finn" },
+    { titulo: "A Cabana", autor: "William P. Young" },
+    { titulo: "O Poder do Agora", autor: "Eckhart Tolle" },
+    { titulo: "O Livro da Vida", autor: "Paco Arango" },
+    { titulo: "O Labirinto do Fauno", autor: "Guillermo del Toro" },
+    { titulo: "A Mãe", autor: "Máximo Gorki" },
+    { titulo: "A Casa dos Espíritos", autor: "Isabel Allende" },
+    { titulo: "O Morro dos Ventos Uivantes", autor: "Emily Brontë" },
+    { titulo: "O Alquimista", autor: "Paulo Coelho" },
+    { titulo: "A Vida de Pi", autor: "Yann Martel" },
+    { titulo: "O Menino do Pijama Listrado", autor: "John Boyne" },
+    { titulo: "O Gato Preto e Outras Histórias", autor: "Edgar Allan Poe" },
+    { titulo: "O Milagre da Manhã", autor: "Hal Elrod" },
+    { titulo: "A Arte da Felicidade", autor: "Dalai Lama" },
+    { titulo: "O Jogo da Imitação", autor: "Andrew Hodges" },
+    { titulo: "O Homem que Calculava", autor: "Malba Tahan" },
+    { titulo: "O País das Sombras Felizes", autor: "Tizuka Yamasaki" },
+    { titulo: "A Bússola de Ouro", autor: "Philip Pullman" },
+    { titulo: "O Caçador de Pipas", autor: "Khaled Hosseini" },
+    { titulo: "O Jardim das Cores Silenciosas", autor: "Anuradha Roy" },
+    { titulo: "A Menina que Roubava Livros", autor: "Markus Zusak" },
+    { titulo: "A Mulher de Branco", autor: "Wilkie Collins" },
+    { titulo: "A Guerra dos Tronos", autor: "George R.R. Martin" },
+    { titulo: "O Clube da Luta", autor: "Chuck Palahniuk" },
+    { titulo: "O Poder do Hábito", autor: "Charles Duhigg" },
+    { titulo: "A Cabana do Pai Tomás", autor: "Harriet Beecher Stowe" },
+    { titulo: "O Livro dos Espíritos", autor: "Allan Kardec" },
+    { titulo: "O Encontro", autor: "Romain Gary" },
+    { titulo: "O Homem Invisível", autor: "H.G. Wells" },
+    { titulo: "O Velho e o Mar", autor: "Ernest Hemingway" },
+    { titulo: "O Apanhador no Campo de Centeio", autor: "J.D. Salinger" },
+    { titulo: "O Príncipe", autor: "Nicolau Maquiavel" }
+];
+
+        // Histórico para evitar repetição
+        let filmesUsados = [];
+        let jogosUsados = [];
+        let musicasUsadas = [];
+        let livrosUsados = [];
+
+        function gerarItemUnico(array, usados) {
+            const filtrados = array.filter(item => !usados.includes(item));
+            if (filtrados.length === 0) {
+                usados.length = 0;  // Limpa o histórico se todos os itens já foram usados
+            }
+            const novosFiltrados = array.filter(item => !usados.includes(item));
+            const itemAleatorio = novosFiltrados[Math.floor(Math.random() * novosFiltrados.length)];
+            usados.push(itemAleatorio);  // Adiciona ao histórico de usados
+            return itemAleatorio;
+        }
+
+        function gerarColunas() {
+            const colunasDiv = document.getElementById("colunas");
+
+            // Gera um novo filme, jogo, música e livro sem repetir
+            const filmeAleatorio = gerarItemUnico(filmes, filmesUsados);
+            const jogoAleatorio = gerarItemUnico(jogos, jogosUsados);
+            const musicaAleatoria = gerarItemUnico(musicas, musicasUsadas);
+            const livroAleatorio = gerarItemUnico(livros, livrosUsados);
+
+            // Gera o HTML para as colunas com as informações específicas
+            colunasDiv.innerHTML = `
+                <div class="coluna">
+                    <h2>Filme</h2>
+                    <img src="../img/filme.png" alt="Capa do Filme">
+                    <div class="info">${filmeAleatorio.titulo}</div>
+                    <div class="director-year">
+                        <span>${filmeAleatorio.diretor}</span>
+                        <span>(${filmeAleatorio.ano})</span>
+                    </div>
+                </div>
+                <div class="coluna">
+                    <h2>Jogo</h2>
+                    <img src="../img/jogo.png" alt="Capa do Jogo">
+                    <div class="info">${jogoAleatorio.titulo}</div>
+                </div>
+                <div class="coluna">
+                    <h2>Música</h2>
+                    <img src="../img/musica.png" alt="Capa do Álbum">
+                    <div class="info">${musicaAleatoria.titulo}</div>
+                    <div class="artist">${musicaAleatoria.artista}</div>
+                </div>
+                <div class="coluna">
+                    <h2>Livro</h2>
+                    <img src="../img/book.png" alt="Capa do Livro">
+                    <div class="info">${livroAleatorio.titulo}</div>
+                    <div class="author">${livroAleatorio.autor}</div>
+                </div>
+            `;
+
+            // Exibe as colunas
+            colunasDiv.style.display = "flex";
+        }
+
+        // Adiciona o listener ao botão
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("brisar-btn").addEventListener("click", gerarColunas);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Pronto para brisar?</h1>
+            <button id="brisar-btn">Brisar</button>
+            
+            <!-- Div onde as colunas serão geradas -->
+            <div id="colunas" class="colunas"></div>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>&copy; 2024 eHigh. All rights reserved.</p>
+    <p>Developed by Léo Latance</p>
+    <p><a href="mailto:leolatance@gmail.com">Contato</a></p>
+</footer>
+</html>
